@@ -1,6 +1,5 @@
-import { ChatContainer } from "@/components/chat/ChatContainer";
-import Image from "next/image";
+import { UserNameSelection } from "@/components/user/UserNameSelection";
 
 export default function Home() {
-  return <ChatContainer />;
+  return <UserNameSelection />;
 }
