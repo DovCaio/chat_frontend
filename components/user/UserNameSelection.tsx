@@ -9,7 +9,7 @@ export const UserNameSelection = () => {
 
     const formData = e.currentTarget;
 
-    const user = formData.user.value;
+    const user = formData.username.value;
 
     console.log(user);
 
@@ -22,14 +22,36 @@ export const UserNameSelection = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Give your chat name</label>
-          <input type="text" id="user" className="border" />
+    <div className="flex flex-col items-center mt-8 rounded-xl shadow-md w-1/2 mx-auto p-6">
+      <div className="p-5">
+        <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+          Choice your username
+        </h1>
+      </div>
+
+      <form onSubmit={handleSubmit} className="w-2/3">
+        <div className="flex flex-col">
+          <label
+            htmlFor="username"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Give your chat name:
+          </label>
+          <input
+            type="text"
+            id="username"
+            className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          />
         </div>
 
-        <button type="submit">Choice</button>
+        <div className="flex justify-end m-2 w-full">
+          <button
+            className=" bg-blue-500 p-2 rounded text-white font-bold text-sm w-full "
+            type="submit"
+          >
+            Choice
+          </button>
+        </div>
       </form>
     </div>
   );
