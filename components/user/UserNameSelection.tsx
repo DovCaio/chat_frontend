@@ -1,9 +1,11 @@
 "use client";
 
+import { useChat } from "@/hook/ChatProvider";
 import { useRouter } from "next/navigation";
 
 export const UserNameSelection = () => {
   const route = useRouter();
+  const { connect } = useChat();
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -11,13 +13,16 @@ export const UserNameSelection = () => {
 
     const user = formData.username.value;
 
-    console.log(user);
+    const ws = new WebSocket(
+      `ws://localhost:8080/ws?user=${encodeURIComponent(user)}`,
+    );
 
-    const requsitionSucessful = true;
-
-    if (requsitionSucessful) {
+    try {
+      connect(user);
       cookieStore.set("user", user);
       route.push("/chat");
+    } catch (e) {
+      console.log(e);
     }
   };
 
