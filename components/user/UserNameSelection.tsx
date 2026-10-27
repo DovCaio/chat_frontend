@@ -1,6 +1,9 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export const UserNameSelection = () => {
+  const route = useRouter();
   const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -9,6 +12,13 @@ export const UserNameSelection = () => {
     const user = formData.user.value;
 
     console.log(user);
+
+    const requsitionSucessful = true;
+
+    if (requsitionSucessful) {
+      cookieStore.set("user", user);
+      route.push("/chat");
+    }
   };
 
   return (
