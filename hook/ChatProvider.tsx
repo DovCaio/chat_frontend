@@ -41,7 +41,7 @@ export function ChatProvider({ children }: { children: React.ReactNode }) {
       current?.close();
 
       return new WebSocket(
-        `ws://localhost:8080/ws?username=${encodeURIComponent(username)}`,
+        `ws://localhost:8080/ws?user=${encodeURIComponent(username)}`,
       );
     });
   }, []);

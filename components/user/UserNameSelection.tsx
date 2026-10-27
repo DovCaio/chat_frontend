@@ -13,10 +13,6 @@ export const UserNameSelection = () => {
 
     const user = formData.username.value;
 
-    const ws = new WebSocket(
-      `ws://localhost:8080/ws?user=${encodeURIComponent(user)}`,
-    );
-
     try {
       connect(user);
       cookieStore.set("user", user);
